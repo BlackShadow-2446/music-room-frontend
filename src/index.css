@@ -1,0 +1,75 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer utilities {
+  .glass-panel {
+    background: rgba(17, 23, 34, 0.75);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+    border: 1px solid rgba(255, 255, 255, 0.08);
+  }
+  
+  .glass-card {
+    background: rgba(22, 30, 46, 0.65);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(255, 255, 255, 0.06);
+  }
+
+  .glow-border {
+    position: relative;
+  }
+  .glow-border::after {
+    content: '';
+    position: absolute;
+    inset: -1px;
+    border-radius: inherit;
+    padding: 1px;
+    background: linear-gradient(135deg, rgba(99, 102, 241, 0.5), rgba(6, 182, 212, 0.3), transparent);
+    -webkit-mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    pointer-events: none;
+  }
+}
+
+/* Custom modern dark scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+::-webkit-scrollbar-track {
+  background: rgba(12, 16, 23, 0.5);
+}
+::-webkit-scrollbar-thumb {
+  background: rgba(71, 85, 105, 0.6);
+  border-radius: 9999px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: rgba(99, 102, 241, 0.8);
+}
+
+/* Equalizer bar heights */
+@keyframes barBounce1 {
+  0%, 100% { height: 18%; }
+  50% { height: 85%; }
+}
+@keyframes barBounce2 {
+  0%, 100% { height: 35%; }
+  50% { height: 100%; }
+}
+@keyframes barBounce3 {
+  0%, 100% { height: 15%; }
+  50% { height: 70%; }
+}
+@keyframes barBounce4 {
+  0%, 100% { height: 28%; }
+  50% { height: 95%; }
+}
+
+.animate-bar-1 { animation: barBounce1 0.75s ease-in-out infinite; }
+.animate-bar-2 { animation: barBounce2 0.62s ease-in-out infinite; }
+.animate-bar-3 { animation: barBounce3 0.88s ease-in-out infinite; }
+.animate-bar-4 { animation: barBounce4 0.55s ease-in-out infinite; }
+
